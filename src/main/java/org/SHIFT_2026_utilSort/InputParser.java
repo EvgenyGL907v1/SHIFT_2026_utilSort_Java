@@ -4,6 +4,7 @@ import org.SHIFT_2026_utilSort.Options.*;
 
 import java.util.ArrayList;
 
+/** Класс для парсинга входных параметров*/
 public class InputParser {
     private final ArrayList<Option> options = new ArrayList<>();
 
@@ -12,6 +13,8 @@ public class InputParser {
         options.add(new OptionSetPrefixFileName());
         options.add(new OptionSetFileWriteStatus());
         options.add(new OptionAddFile());
+        options.add(new OptionSetStatisticEnableShort());
+        options.add(new OptionSetStatisticEnableFull());
     }
 
     public void parce(String[] input) {

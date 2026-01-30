@@ -2,6 +2,8 @@ package org.SHIFT_2026_utilSort;
 
 import java.util.ArrayList;
 
+/**Класс ConfigurationUtil хранит все настройки утилиты, полученные из входных параметров
+ * Реализует паттерн Singleton*/
 public class ConfigurationUtil {
     private static final ConfigurationUtil INSTANCE = new ConfigurationUtil();
 
@@ -13,6 +15,9 @@ public class ConfigurationUtil {
     private String prefixFileName = "";
     private FileWriteStatus fileWriteStatus = FileWriteStatus.REWRITE;
     private ArrayList<String> listInputFileNames = new ArrayList<String>();
+
+    private boolean statisticEnableShort = false;
+    private boolean statisticEnableFull = false;
 
     private ConfigurationUtil() {}
 
@@ -28,12 +33,20 @@ public class ConfigurationUtil {
         return prefixFileName;
     }
 
-    public String getFileWriteStatus() {
-        return fileWriteStatus.toString();
+    public FileWriteStatus getFileWriteStatus() {
+        return fileWriteStatus;
     }
 
     public ArrayList<String> getListInputFileNames() {
         return listInputFileNames;
+    }
+
+    public  boolean getStatisticEnableShort() {
+        return statisticEnableShort;
+    }
+
+    public boolean getStatisticEnableFull() {
+        return statisticEnableFull;
     }
 
     public void setOutputDirectoryPath(String path){
@@ -52,10 +65,11 @@ public class ConfigurationUtil {
         listInputFileNames.add(fileName);
     }
 
-    public void print() {
-        System.out.println("outputDirectoryPath: " + outputDirectoryPath + "\n" +
-            "prefixFileName: " + prefixFileName + "\n" +
-            "fileWriteStatus: " + fileWriteStatus + "\n" +
-            "файлы: " + listInputFileNames);
+    public void setStatisticEnableShort() {
+        statisticEnableShort = true;
+    }
+
+    public void setStatisticEnableFull() {
+        statisticEnableFull = true;
     }
 }
